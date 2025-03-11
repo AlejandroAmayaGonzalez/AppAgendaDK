@@ -4,7 +4,6 @@ import javafx.collections.ObservableList;
 import javafx.event.Event;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.scene.control.Label;
 import javafx.scene.layout.Pane;
 
 import javax.swing.text.View;
@@ -13,8 +12,7 @@ import java.io.IOException;
 public class InicioController {
     @FXML
     private View inicio;
-    @FXML
-    private Label label;
+
     private DataUtil dataUtil;
     ObservableList olProv;
     ObservableList olPers;
@@ -24,15 +22,18 @@ public class InicioController {
     public void iniciaApp(Event event){
         try{
             FXMLLoader fxmlLoader = new
-                    FXMLLoader(getClass().getResource("AgendaView.fxml"));
-            Pane rootAgendaView = fxmlLoader.load();
-            rootMain.getChildren().add(rootAgendaView);
-            AgendaViewController agendaViewController =
+                    FXMLLoader(getClass().getResource("login.fxml"));
+            Pane rootLoginView = fxmlLoader.load();
+
+            rootMain.getChildren().add(rootLoginView);
+            LoginController loginController =
                     fxmlLoader.getController();
-            agendaViewController.setDataUtil(dataUtil);
-            agendaViewController.setOlProvincias(olProv);
-            agendaViewController.setOlPersonas(olPers);
-            agendaViewController.cargarTodasPersonas();
+
+            loginController.setDataUtil(dataUtil);
+            loginController.setOlPers(olPers);
+            loginController.setOlProv(olProv);
+            loginController.setRootMain(rootMain);
+
         } catch (IOException e) {
             System.out.println("IOException: " + e);
         }
