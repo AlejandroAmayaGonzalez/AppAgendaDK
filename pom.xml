@@ -4,15 +4,15 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0
 https://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
-    <groupId>es.ieslosmontecillos</groupId>
-    <artifactId>AppAgendaDK</artifactId>
+    <groupId>ieslosmontecillos</groupId>
+    <artifactId>AppAgendaBK</artifactId>
     <version>1.0-SNAPSHOT</version>
-    <name>AppAgendaDk</name>
+    <name>AppAgendaBK</name>
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF8</project.reporting.outputEncoding>
         <maven.compiler.release>11</maven.compiler.release>
-        <javafx.version>21</javafx.version>
+        <javafx.version>23.0.1</javafx.version>
         <attach.version>4.0.19</attach.version>
         <gluonfx.plugin.version>1.0.21</gluonfx.plugin.version>
         <javafx.plugin.version>0.0.8</javafx.plugin.version>
@@ -20,19 +20,32 @@ https://maven.apache.org/xsd/maven-4.0.0.xsd">
         <connect.version>2.0.1</connect.version>
         <!--<gluonfx.target>android</gluonfx.target>-->
         <gluonfx.target>host</gluonfx.target>
-        <mainClassName>es.ieslosmontecillos.AppAgendaDK</mainClassName>
+        <mainClassName>ieslosmontecillos.AppAgendaBK</mainClassName>
     </properties>
     <dependencies>
         <dependency>
             <groupId>org.openjfx</groupId>
+            <artifactId>javafx-base</artifactId>
+            <version>${javafx.version}</version>
+            <classifier>linux</classifier>
+        </dependency>
+        <dependency>
+            <groupId>org.openjfx</groupId>
             <artifactId>javafx-controls</artifactId>
             <version>${javafx.version}</version>
+            <classifier>linux</classifier>
         </dependency>
         <dependency>
             <groupId>org.openjfx</groupId>
             <artifactId>javafx-fxml</artifactId>
             <version>${javafx.version}</version>
-
+            <classifier>linux</classifier>
+        </dependency>
+        <dependency>
+            <groupId>org.openjfx</groupId>
+            <artifactId>javafx-graphics</artifactId>
+            <version>${javafx.version}</version>
+            <classifier>linux</classifier>
         </dependency>
         <dependency>
             <groupId>org.controlsfx</groupId>
@@ -145,8 +158,8 @@ https://maven.apache.org/xsd/maven-4.0.0.xsd">
                         <list>browser</list>
                     </attachList>
                     <reflectionList>
-                        <list>es.losmontecillos.Persona</list>
-                        <list>es.losmontecillos.Provincia</list>
+                        <list>ieslosmontecillos.Persona</list>
+                        <list>ieslosmontecillos.Provincia</list>
                     </reflectionList>
                 </configuration>
             </plugin>
@@ -176,7 +189,7 @@ https://maven.apache.org/xsd/maven-4.0.0.xsd">
                         <manifest>
                             <addClasspath>true</addClasspath>
                             <classpathPrefix>libs/</classpathPrefix>
-                            <mainClass>es.losmontecillos.AppAgendaDK</mainClass>
+                            <mainClass>ieslosmontecillos.appagendabk.AppAgendaBK</mainClass>
                         </manifest>
                     </archive>
                 </configuration>
